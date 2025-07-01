@@ -2,15 +2,12 @@ name: WordPress Cron Pinger
 
 on:
   schedule:
-    # 20분마다 실행 (UTC 기준)
     - cron: '*/20 * * * *'
   workflow_dispatch:
-    # 수동으로 실행할 수 있도록 버튼 추가
 
 jobs:
   ping_site:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping All WordPress Sites
-        run: |
-          curl https://stone.maeilyogi.kr/wp-cron.php?doing_wp_cron
+      - name: Ping WordPress Site
+        run: curl https://stone.maeilyogi.kr/wp-cron.php?doing_wp_cron
